@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FormGenerator.Mapper\FormGenerator.Mapper.csproj">
+      <Project>{8119f06f-48b3-4dc4-869c-28ef4c416274}</Project>
+      <Name>FormGenerator.Mapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FormGenerator.Model\FormGenerator.Model.csproj">
+      <Project>{079bb13e-0d00-4ac5-a0a2-f4cd3911500a}</Project>
+      <Name>FormGenerator.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FormGenerator.Service\FormGenerator.Service.csproj">
+      <Project>{03a4bb36-f06a-4a5b-b81c-cdb47e29d735}</Project>
+      <Name>FormGenerator.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FormGenerator.ViewModel\FormGenerator.ViewModel.csproj">
+      <Project>{e26002d9-9084-49e6-9c48-6a339ddbd690}</Project>
+      <Name>FormGenerator.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

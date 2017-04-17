@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FormGenerator.Model\FormGenerator.Model.csproj">
+      <Project>{079bb13e-0d00-4ac5-a0a2-f4cd3911500a}</Project>
+      <Name>FormGenerator.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FormGenerator.ViewModel\FormGenerator.ViewModel.csproj">
+      <Project>{e26002d9-9084-49e6-9c48-6a339ddbd690}</Project>
+      <Name>FormGenerator.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,31 @@
+﻿@using System.Security.Cryptography.X509Certificates
+@using Newtonsoft.Json
+@model FormGenerator.ViewModel.FormViewModel
+
+<div id="content">
+</div>
+
+<script type="text/babel">
+    class FormInstance extends React.Component {
+        constructor(props){
+            super(props);
+        }
+        render(){
+            return (<ReactBootstrap.Form onSubmit={this.handleSubmit.bind(this)}>
+                @foreach (var formField in Model.FormFieldViewModels.OrderBy(x => x.Order))
+                {
+                    var refString = $"ref={{instance => this.{formField.Code} = instance}}";
+                    <@formField.ControlType @Html.Raw(refString) label="@formField.Label" code="@formField.Code" children="@JsonConvert.SerializeObject(formField.ReferenceDataViewModels)" cols="@formField.Columns" branching="@JsonConvert.SerializeObject(formField.ParentForBranching)"/>
+                }
+            </ReactBootstrap.Form>);
+        }
+
+        handleSubmit(e){
+            e.preventDefault();
+            this["FBAE03_1"].validate();
+            this["FBAE03_2"].validate();
+            this["FBAE03_5"].validate();
+        }
+    };
+    ReactDOM.render(<FormInstance/>, document.getElementById("content"));
+</script>

@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Interface" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FormGenerator.Model\FormGenerator.Model.csproj">
+      <Project>{079bb13e-0d00-4ac5-a0a2-f4cd3911500a}</Project>
+      <Name>FormGenerator.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FormGenerator.Repository\FormGenerator.Repository.csproj">
+      <Project>{5600fe3f-2f6b-4466-8ede-6178370767dc}</Project>
+      <Name>FormGenerator.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
