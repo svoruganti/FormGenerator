@@ -10,6 +10,7 @@ class DatePicker extends FormGeneratorComponent {
                 <ReactBootstrap.Col sm={this.props.cols}>
                     <ReactBootstrap.ControlLabel>{this.props.label}</ReactBootstrap.ControlLabel>
                     <ReactBootstrap.FormControl type="text" name={this.props.code} onChange={this.handleControlledComponentChange.bind(this)} onBlur={this.handleBlur.bind(this)} value={this.state.value}/>
+                    <ValidationMessage messages={this.state.validationMessages}/>
                 </ReactBootstrap.Col>
             </ReactBootstrap.FormGroup>
         );

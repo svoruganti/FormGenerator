@@ -171,7 +171,8 @@ var DatePicker = function (_FormGeneratorCompone) {
                         null,
                         this.props.label
                     ),
-                    React.createElement(ReactBootstrap.FormControl, { type: "text", name: this.props.code, onChange: this.handleControlledComponentChange.bind(this), onBlur: this.handleBlur.bind(this), value: this.state.value })
+                    React.createElement(ReactBootstrap.FormControl, { type: "text", name: this.props.code, onChange: this.handleControlledComponentChange.bind(this), onBlur: this.handleBlur.bind(this), value: this.state.value }),
+                    React.createElement(ValidationMessage, { messages: this.state.validationMessages })
                 )
             );
         }
@@ -430,14 +431,14 @@ var ValidationMessage = function (_React$Component) {
         value: function render() {
             if (this.props.messages.size > 0) {
                 var vm = this.props.messages;
-                var m = Object.values(vm).forEach(function (item) {
+                var m = vm.forEach(function (value, key, map) {
                     return React.createElement(
                         "li",
                         null,
-                        item
+                        "is required"
                     );
                 }, this);
-                console.log(Object.keys(vm));
+                console.log(m);
                 return React.createElement(
                     "ul",
                     null,

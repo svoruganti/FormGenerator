@@ -6,10 +6,10 @@ class ValidationMessage extends React.Component {
     render() {
         if (this.props.messages.size > 0) {
             let vm = this.props.messages;
-            let m = Object.values(vm).forEach(function(item) {
-                return (<li>{item}</li>);
+            let m = vm.forEach(function(value, key, map) {
+                return (<li>is required</li>);
             }, this);
-            console.log(Object.keys(vm));
+            console.log(m);
             return (
                 <ul>
                     <li>{m}</li>
