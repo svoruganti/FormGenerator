@@ -14,7 +14,8 @@ namespace FormGenerator.ViewModel
         public string Code { get; set; }
         public string Description { get; set; }
         public IList<FormFieldViewModel> FormFieldViewModels { get; set; }
-        public string Parent { get; set; }
+        public string LoadUrl { get; set; }
+        public string SaveUrl { get; set; }
     }
 
     public class FormFieldViewModel
@@ -50,5 +51,10 @@ namespace FormGenerator.ViewModel
         public string Description { get; set; }
         public string TableName { get; set; }
         public string WhereClause { get; set; }
+    }
+
+    public class LoadFormDataViewModel
+    {
+        public IDictionary<string, object> FormData { get; set; }
     }
 }

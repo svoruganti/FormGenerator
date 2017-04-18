@@ -13,7 +13,6 @@
     <Folder Include="Views\FormGenerator" />
     <Folder Include="Views\Shared\EditorTemplates" />
     <Folder Include="webpack" />
-    <Folder Include="wwwroot\js\app\vendor" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FormGenerator.DI\FormGenerator.DI.csproj">

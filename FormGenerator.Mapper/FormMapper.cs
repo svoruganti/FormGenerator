@@ -11,7 +11,7 @@ namespace FormGenerator.Mapper
         public FormViewModel MapFormViewModel(Form form, IEnumerable<FormReferenceData> formReferenceData)
         {
             var viewModel = new FormViewModel {Id = form.Id, Code = form.Code, Description = form.Description};
-
+            viewModel.LoadUrl = $"/form/{form.Code}/load";
 
             foreach (var formConfiguration in form.FormConfigurations)
             {

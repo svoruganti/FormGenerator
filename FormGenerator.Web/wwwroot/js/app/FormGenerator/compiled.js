@@ -58,7 +58,8 @@ var FormGeneratorComponent = function (_React$Component) {
             }
 
             var messages = new Map();
-            if (this.state.isVisible && this.state.value.length === 0) {
+            console.log(this.state);
+            if (this.state.isVisible && (this.state.value != undefined || this.state.value.trim().length === 0)) {
                 this.setState({ validationState: "error" });
                 messages.set(this.props.code, "is required");
             } else this.setState({ validationState: null });
@@ -96,7 +97,7 @@ var FormGeneratorComponent = function (_React$Component) {
 
             store.subscribe(function () {
                 var fd = store.getState().formData;
-                _this2.setState({ isVisible: _this2.getIsVisible(fd) });
+                _this2.setState({ isVisible: _this2.getIsVisible(fd), value: fd[_this2.props.code] });
             });
         }
     }]);
@@ -294,7 +295,7 @@ var RadioButtonList = function (_FormGeneratorCompone) {
             var radioButtons = json.map(function (item, index) {
                 return React.createElement(
                     ReactBootstrap.Radio,
-                    { key: index, name: this.props.code, id: this.props.code + "_" + item.Id, value: item.Id, onClick: this.handleRadioButtonClick.bind(this), inline: true },
+                    { key: index, name: this.props.code, id: this.props.code + "_" + item.Id, value: item.Id, onClick: this.handleRadioButtonClick.bind(this), inline: true, checked: this.state.value == item.Id },
                     item.Description
                 );
             }, this);
@@ -430,23 +431,18 @@ var ValidationMessage = function (_React$Component) {
         key: "render",
         value: function render() {
             if (this.props.messages.size > 0) {
-                var vm = this.props.messages;
-                var m = vm.forEach(function (value, key, map) {
+                var m = $.each(this.props.messages, function (key, value) {
                     return React.createElement(
                         "li",
                         null,
-                        "is required"
+                        value
                     );
                 }, this);
-                console.log(m);
+
                 return React.createElement(
                     "ul",
                     null,
-                    React.createElement(
-                        "li",
-                        null,
-                        m
-                    )
+                    m
                 );
             } else return null;
         }

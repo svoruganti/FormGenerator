@@ -2,24 +2,20 @@ const formState = { formData: new Map(), validationMessages: new Map() };
 const store = Redux.createStore(formReducer, formState);
 
 var BRANCHING = "Branching";
-var VALIDATION = "Validation";
-
+var LOAD = "Load";
 function formReducer(state = formState, action) {
+    let newState;
     switch (action.type) {
         case BRANCHING:
-            var newState = {
+            newState = {
                 formData: state.formData
             };
             newState.formData[action.payload.controlId] = action.payload.value;
             return newState;
-        case VALIDATION:
-            var newState = {
-                formData: state.formData,
-                validationMessages: new Map()
+        case LOAD:
+            newState = {
+                formData: action.payload
             };
-            Object.keys(action.payload.validationMessages).forEach(function(item) {
-                newState.validationMessages[item] = action.payload.validationMessages[item];
-            });
             return newState;
         default:
             console.log("Int form reducer switch default is called");
@@ -33,9 +29,9 @@ function returnBranchingAction(e) {
     };
 }
 
-function returnValidationAction(messages) {
+function returnLoadAction(data) {
     return {
-        type: VALIDATION,
-        payload: { validationMessages: messages }
+        type: LOAD,
+        payload: data
     };
 }

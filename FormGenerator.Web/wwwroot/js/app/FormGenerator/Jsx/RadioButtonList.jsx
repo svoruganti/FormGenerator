@@ -9,7 +9,7 @@ class RadioButtonList extends FormGeneratorComponent {
                 return (
                     <ReactBootstrap.Radio key={index} name={this.props.code} id={this.props.code +
                         "_" +
-                        item.Id} value={item.Id} onClick={this.handleRadioButtonClick.bind(this)} inline>
+                        item.Id} value={item.Id} onClick={this.handleRadioButtonClick.bind(this)} inline checked={this.state.value == item.Id}>
                         {item.Description}
                     </ReactBootstrap.Radio>);
             },

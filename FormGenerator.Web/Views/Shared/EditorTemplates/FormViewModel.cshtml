@@ -1,5 +1,4 @@
-﻿@using System.Security.Cryptography.X509Certificates
-@using Newtonsoft.Json
+﻿@using Newtonsoft.Json
 @model FormGenerator.ViewModel.FormViewModel
 
 <div id="content">
@@ -9,6 +8,7 @@
     class FormInstance extends React.Component {
         constructor(props){
             super(props);
+            this.state = {formData:{}};
         }
         render(){
             return (<ReactBootstrap.Form onSubmit={this.handleSubmit.bind(this)}>
@@ -26,6 +26,22 @@
             this["FBAE03_2"].validate();
             this["FBAE03_5"].validate();
         }
+
+        componentDidMount(){
+            fetch(this.props.loadUrl, {
+                method: "get"
+            }).then(function(response){
+                return response.json();
+            }).then(function(response){
+                store.dispatch(returnLoadAction(response.formData));
+            }).catch(function(error){
+                console.log(error);
+            });
+        }
+
+        setFormData(controlId, value){
+
+        }
     };
-    ReactDOM.render(<FormInstance/>, document.getElementById("content"));
+    ReactDOM.render(<FormInstance loadUrl="@Model.LoadUrl" saveUrl="@Model.SaveUrl"/>, document.getElementById("content"));
 </script>

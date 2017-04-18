@@ -38,7 +38,8 @@ class FormGeneratorComponent extends React.Component {
         }
 
         let messages = new Map();
-        if (this.state.isVisible && this.state.value.length === 0) {
+        console.log(this.state);
+        if (this.state.isVisible && (this.state.value != undefined || this.state.value.trim().length === 0)) {
             this.setState({ validationState: "error" });
             messages.set(this.props.code, "is required");
         } else
@@ -70,7 +71,7 @@ class FormGeneratorComponent extends React.Component {
     componentDidMount() {
         store.subscribe(() => {
             let fd = store.getState().formData;
-            this.setState({isVisible: this.getIsVisible(fd)});
+            this.setState({isVisible: this.getIsVisible(fd), value:fd[this.props.code]});
         });
     }
 

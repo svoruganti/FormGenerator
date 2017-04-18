@@ -19,5 +19,12 @@ namespace FormGenerator.Web.Controllers
             var formFields = _formGeneratorService.GetFormViewModel(formCode);
             return View("Index", formFields);
         }
+
+        [Route("{formCode}/load"), HttpGet]
+        public IActionResult Load(string formCode)
+        {
+            var formData = _formGeneratorService.GetFormData(formCode);
+            return Json(formData);
+        }
     }
 }
