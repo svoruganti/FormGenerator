@@ -1,7 +1,7 @@
 class Textbox extends FormGeneratorComponent{
     constructor(props){
         super(props);
-        this.state = this.getInitialState();
+        this.state = this.getComponentInitialState();
     }
     render() {
         return (

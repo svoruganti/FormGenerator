@@ -5,7 +5,7 @@ class FormGeneratorComponent extends React.Component {
         this.hasBranchingControls = this.branchingControls.length === 0;
     }
 
-    getInitialState() {
+    getComponentInitialState() {
         return {
             value: "",
             isVisible: this.hasBranchingControls,
@@ -38,14 +38,12 @@ class FormGeneratorComponent extends React.Component {
         }
 
         let messages = new Map();
-        console.log(this.state);
-        if (this.state.isVisible && (this.state.value != undefined || this.state.value.trim().length === 0)) {
+        if (this.state.isVisible && (this.state.value === undefined || this.state.value.trim().length === 0)) {
             this.setState({ validationState: "error" });
             messages.set(this.props.code, "is required");
         } else
             this.setState({ validationState: null });
         this.setState({validationMessages : messages});
-        //store.dispatch(returnValidationAction(messages));
     }
 
     handleChange(e) {

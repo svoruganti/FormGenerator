@@ -22,8 +22,8 @@ var FormGeneratorComponent = function (_React$Component) {
     }
 
     _createClass(FormGeneratorComponent, [{
-        key: "getInitialState",
-        value: function getInitialState() {
+        key: "getComponentInitialState",
+        value: function getComponentInitialState() {
             return {
                 value: "",
                 isVisible: this.hasBranchingControls,
@@ -58,13 +58,11 @@ var FormGeneratorComponent = function (_React$Component) {
             }
 
             var messages = new Map();
-            console.log(this.state);
-            if (this.state.isVisible && (this.state.value != undefined || this.state.value.trim().length === 0)) {
+            if (this.state.isVisible && (this.state.value === undefined || this.state.value.trim().length === 0)) {
                 this.setState({ validationState: "error" });
                 messages.set(this.props.code, "is required");
             } else this.setState({ validationState: null });
             this.setState({ validationMessages: messages });
-            //store.dispatch(returnValidationAction(messages));
         }
     }, {
         key: "handleChange",
@@ -154,7 +152,7 @@ var DatePicker = function (_FormGeneratorCompone) {
 
         var _this = _possibleConstructorReturn(this, (DatePicker.__proto__ || Object.getPrototypeOf(DatePicker)).call(this, props));
 
-        _this.state = _this.getInitialState();
+        _this.state = _this.getComponentInitialState();
         return _this;
     }
 
@@ -284,7 +282,7 @@ var RadioButtonList = function (_FormGeneratorCompone) {
 
         var _this = _possibleConstructorReturn(this, (RadioButtonList.__proto__ || Object.getPrototypeOf(RadioButtonList)).call(this, props));
 
-        _this.state = _this.getInitialState();
+        _this.state = _this.getComponentInitialState();
         return _this;
     }
 
@@ -381,7 +379,7 @@ var Textbox = function (_FormGeneratorCompone) {
 
         var _this = _possibleConstructorReturn(this, (Textbox.__proto__ || Object.getPrototypeOf(Textbox)).call(this, props));
 
-        _this.state = _this.getInitialState();
+        _this.state = _this.getComponentInitialState();
         return _this;
     }
 

@@ -1,7 +1,7 @@
 class RadioButtonList extends FormGeneratorComponent {
     constructor (props) {
         super(props);
-        this.state = this.getInitialState();
+        this.state = this.getComponentInitialState();
     }
     render() {
         let json = JSON.parse(this.props.children);
