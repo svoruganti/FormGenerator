@@ -8,7 +8,7 @@
     class FormInstance extends React.Component {
         constructor(props){
             super(props);
-            this.state = {formData:{}};
+            this.state = {isFormValid : true};
         }
         render(){
             return (<ReactBootstrap.Form onSubmit={this.handleSubmit.bind(this)}>
@@ -22,10 +22,16 @@
 
         handleSubmit(e){
             e.preventDefault();
+            this.setState({isFormValid : true});
             this.props.components.forEach((item) => {
-                if (typeof this[item].validate == "function")
+                if (typeof this[item].validate == "function"){
                     this[item].validate();
+                }
             });
+
+            if (!this.store.getState().isFormValid){
+                alert("Not submitting form as there are errors");
+            }
         }
 
         componentDidMount(){

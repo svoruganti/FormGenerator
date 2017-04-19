@@ -30,6 +30,7 @@ namespace FormGenerator.Handler
             formData.Add("FBAE03_1", "First name");
             formData.Add("FBAE03_2", "Surname");
             formData.Add("FBAE03_4", "1");
+            formData.Add("FBAE03_5", "Date of birth");
             return new LoadFormDataViewModel
             {
                 FormData = formData

@@ -1,8 +1,9 @@
-const formState = { formData: new Map(), validationMessages: new Map() };
+const formState = { formData: new Map(), isFormValid : true };
 const store = Redux.createStore(formReducer, formState);
 
 var BRANCHING = "Branching";
 var LOAD = "Load";
+var VALIDATION = "Validation";
 function formReducer(state = formState, action) {
     let newState;
     switch (action.type) {
@@ -17,6 +18,11 @@ function formReducer(state = formState, action) {
                 formData: action.payload
             };
             return newState;
+        case VALIDATION:
+            newState = {
+                formData: state.formData,
+            }
+            newState.isFormValid = action.payload;
         default:
             console.log("Int form reducer switch default is called");
     }

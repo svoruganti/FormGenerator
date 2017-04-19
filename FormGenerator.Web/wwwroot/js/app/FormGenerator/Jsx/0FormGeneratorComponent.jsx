@@ -44,6 +44,8 @@ class FormGeneratorComponent extends React.Component {
         } else
             this.setState({ validationState: null });
         this.setState({validationMessages : messages});
+//        if (messages.size > 0)
+//            store.dispatch({ type: VALIDATION, payload: false });
     }
 
     handleChange(e) {
