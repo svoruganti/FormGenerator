@@ -41,3 +41,10 @@ function returnLoadAction(data) {
         payload: data
     };
 }
+
+function returnValidationAction(data){
+    return {
+        type: VALIDATION,
+        payload: data
+    };
+};
