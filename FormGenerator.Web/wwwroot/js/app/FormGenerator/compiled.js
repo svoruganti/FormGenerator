@@ -52,19 +52,21 @@ var FormGeneratorComponent = function (_React$Component) {
     }, {
         key: "validate",
         value: function validate() {
+            this.setState({ validationState: null });
             if (!this.state.isVisible) {
-                this.setState({ validationState: null });
                 return;
             }
 
             var messages = new Map();
             if (this.state.isVisible && (this.state.value === undefined || this.state.value.trim().length === 0)) {
-                this.setState({ validationState: "error" });
                 messages.set(this.props.code, "is required");
-            } else this.setState({ validationState: null });
+            }
+
             this.setState({ validationMessages: messages });
-            //        if (messages.size > 0)
-            //            store.dispatch({ type: VALIDATION, payload: false });
+            if (messages.size > 0) {
+                this.setState({ validationState: "error" });
+                store.dispatch(returnValidationAction(false));
+            }
         }
     }, {
         key: "handleChange",
@@ -103,38 +105,6 @@ var FormGeneratorComponent = function (_React$Component) {
     }]);
 
     return FormGeneratorComponent;
-}(React.Component);
-"use strict";
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var CheckboxList = function (_React$Component) {
-    _inherits(CheckboxList, _React$Component);
-
-    function CheckboxList() {
-        _classCallCheck(this, CheckboxList);
-
-        return _possibleConstructorReturn(this, (CheckboxList.__proto__ || Object.getPrototypeOf(CheckboxList)).apply(this, arguments));
-    }
-
-    _createClass(CheckboxList, [{
-        key: "render",
-        value: function render() {
-            return React.createElement(
-                ReactBootstrap.FormGroup,
-                { controlId: this.props.code },
-                React.createElement("input", { type: "check", id: this.props.id, name: this.props.id })
-            );
-        }
-    }]);
-
-    return CheckboxList;
 }(React.Component);
 "use strict";
 

@@ -23,6 +23,7 @@ function formReducer(state = formState, action) {
                 formData: state.formData,
             }
             newState.isFormValid = action.payload;
+            return newState;
         default:
             console.log("Int form reducer switch default is called");
     }

@@ -1,6 +1,7 @@
-public class FormGeneratorViewModelPropertyForAttribute{
+using System;
+public class FormGeneratorViewModelPropertyForAttribute : Attribute{
   public FormGeneratorViewModelPropertyForAttribute(string propertyName){
-    PropertName = propertyName;
+    PropertyName = propertyName;
   } 
   
   public string PropertyName { get; private set;}

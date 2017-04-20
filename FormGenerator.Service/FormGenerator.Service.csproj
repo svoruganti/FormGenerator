@@ -14,5 +14,9 @@
       <Project>{5600fe3f-2f6b-4466-8ede-6178370767dc}</Project>
       <Name>FormGenerator.Repository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FormGenerator.ViewModel\FormGenerator.ViewModel.csproj">
+      <Project>{E26002D9-9084-49E6-9C48-6A339DDBD690}</Project>
+      <Name>FormGenerator.ViewModel</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

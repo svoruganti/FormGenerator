@@ -8,7 +8,6 @@
     class FormInstance extends React.Component {
         constructor(props){
             super(props);
-            this.state = {isFormValid : true};
         }
         render(){
             return (<ReactBootstrap.Form onSubmit={this.handleSubmit.bind(this)}>
@@ -29,7 +28,7 @@
                 }
             });
 
-            if (!this.store.getState().isFormValid){
+            if (!store.getState().isFormValid){
                 console.log("Not submitting form as there are errors");
                 return;
             }
