@@ -32,20 +32,21 @@ class FormGeneratorComponent extends React.Component {
     }
 
     validate() {
+        this.setState({ validationState: null });
         if (!this.state.isVisible) {
-            this.setState({ validationState: null });
             return;
         }
 
         let messages = new Map();
         if (this.state.isVisible && (this.state.value === undefined || this.state.value.trim().length === 0)) {
-            this.setState({ validationState: "error" });
             messages.set(this.props.code, "is required");
-        } else
-            this.setState({ validationState: null });
+        }
+        
         this.setState({validationMessages : messages});
-//        if (messages.size > 0)
-//            store.dispatch({ type: VALIDATION, payload: false });
+        if (messages.size > 0){
+            this.setState({validationState: "error"});
+            store.dispatch(returnValidationAction(false));
+        }
     }
 
     handleChange(e) {
