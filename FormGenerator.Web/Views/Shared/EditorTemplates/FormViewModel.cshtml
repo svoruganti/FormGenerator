@@ -1,4 +1,4 @@
-﻿@using Newtonsoft.Json
+@using Newtonsoft.Json
 @model FormGenerator.ViewModel.FormViewModel
 
 <div id="content">
@@ -22,7 +22,7 @@
 
         handleSubmit(e){
             e.preventDefault();
-            this.setState({isFormValid : true});
+            store.dispatch(returnValidationAction(true));
             this.props.components.forEach((item) => {
                 if (typeof this[item].validate == "function"){
                     this[item].validate();
@@ -30,8 +30,10 @@
             });
 
             if (!this.store.getState().isFormValid){
-                alert("Not submitting form as there are errors");
+                console.log("Not submitting form as there are errors");
+                return;
             }
+            console.log("Submitting form");
         }
 
         componentDidMount(){
