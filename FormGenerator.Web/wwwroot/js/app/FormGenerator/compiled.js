@@ -78,7 +78,9 @@ var FormGeneratorComponent = function (_React$Component) {
     }, {
         key: "setValidationMessages",
         value: function setValidationMessages(messages) {
-            this.setState({ validationMessages: messags });
+            if (!this.state.isVisible) return;
+            this.setState({ validationMessages: messages });
+            if (messages.size > 0) this.setState({ validationState: "error" });
         }
     }, {
         key: "handleControlledComponentChange",

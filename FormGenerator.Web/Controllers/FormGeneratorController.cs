@@ -1,4 +1,5 @@
-﻿using FormGenerator.Handler;
+﻿using System.Collections.Generic;
+using FormGenerator.Handler;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FormGenerator.Web.Controllers
@@ -25,6 +26,19 @@ namespace FormGenerator.Web.Controllers
         {
             var formData = _formGeneratorService.GetFormData(formCode);
             return Json(formData);
+        }
+
+        [Route("{formCode}/save")]
+        public IActionResult Post()
+        {
+            Response.StatusCode = 422;
+            var errors = new Dictionary<string, string>
+            {
+                {"FBAE03_1", "Is required"},
+                {"FBAE03_2", "Is too long"},
+                {"FBAE03_5", "Is too short"}
+            };
+            return Json(errors);
         }
     }
 }

@@ -32,7 +32,25 @@
                 console.log("Not submitting form as there are errors");
                 return;
             }
-            console.log("Submitting form");
+
+            fetch(this.props.saveUrl, {
+                headers: {
+                    "content-type": "application/json",
+                    "accept": "application/json"
+                },
+                method: "post",
+                body: JSON.stringify(store.getState().formData)
+            }).then((response) => {
+                return response.json();
+            }).then((json) => {
+                $.each(json, (k, v) => {
+                    let messages = new Map();
+                    messages.set(k, v);
+                    this[k].setValidationMessages(messages);
+                })
+            }).catch((error) => {
+                console.log(error);
+            });
         }
 
         componentDidMount(){

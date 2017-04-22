@@ -56,7 +56,11 @@ class FormGeneratorComponent extends React.Component {
     }
 
     setValidationMessages(messages) {
-        this.setState({validationMessages : messags})
+        if (!this.state.isVisible)
+            return;
+        this.setState({ validationMessages: messages });
+        if (messages.size > 0)
+            this.setState({ validationState: "error" });
     }
     
     handleControlledComponentChange(e) {
@@ -64,7 +68,7 @@ class FormGeneratorComponent extends React.Component {
     }
 
     handleBlur(e) {
-        this.setState({value: e.target.value})
+        this.setState({ value: e.target.value });
         this.validate();
         store.dispatch(returnBranchingAction(e));
     }

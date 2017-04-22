@@ -10,8 +10,14 @@ namespace FormGenerator.Mapper
     {
         public FormViewModel MapFormViewModel(Form form, IEnumerable<FormReferenceData> formReferenceData)
         {
-            var viewModel = new FormViewModel {Id = form.Id, Code = form.Code, Description = form.Description};
-            viewModel.LoadUrl = $"/form/{form.Code}/load";
+            var viewModel = new FormViewModel
+            {
+                Id = form.Id,
+                Code = form.Code,
+                Description = form.Description,
+                LoadUrl = $"/form/{form.Code}/load",
+                SaveUrl = $"/form/{form.Code}/save"
+            };
 
             foreach (var formConfiguration in form.FormConfigurations)
             {
