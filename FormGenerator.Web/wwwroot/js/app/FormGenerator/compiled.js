@@ -216,6 +216,51 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var Email = function (_FormGeneratorCompone) {
+    _inherits(Email, _FormGeneratorCompone);
+
+    function Email(props) {
+        _classCallCheck(this, Email);
+
+        var _this = _possibleConstructorReturn(this, (Email.__proto__ || Object.getPrototypeOf(Email)).call(this, props));
+
+        _this.state = getComponentInitialState();
+        return _this;
+    }
+
+    _createClass(Email, [{
+        key: "render",
+        value: function render() {
+            React.createElement(
+                ReactBootstrap.FormGroup,
+                { controlId: this.props.code, bsSize: "small", className: this.getIsVisibleClassName(), validationState: this.state.validationState },
+                React.createElement(
+                    ReactBootstrap.Col,
+                    { sm: this.props.cols },
+                    React.createElement(
+                        ReactBootstrap.ControlLabel,
+                        null,
+                        this.props.label
+                    ),
+                    React.createElement(ReactBootstrap.FormControl, { type: "email", name: this.props.code, value: this.state.value, onChange: this.handleControlledComponentChange.bind(this), onBlur: this.handleBlur.bind(this) }),
+                    React.createElement(ValidationMessage, { messages: this.state.validationMessages })
+                )
+            );
+        }
+    }]);
+
+    return Email;
+}(FormGeneratorComponent);
+"use strict";
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 var Label = function (_React$Component) {
     _inherits(Label, _React$Component);
 
@@ -238,6 +283,96 @@ var Label = function (_React$Component) {
 
     return Label;
 }(React.Component);
+"use strict";
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Numeric = function (_FormGeneratorCompone) {
+    _inherits(Numeric, _FormGeneratorCompone);
+
+    function Numeric(props) {
+        _classCallCheck(this, Numeric);
+
+        var _this = _possibleConstructorReturn(this, (Numeric.__proto__ || Object.getPrototypeOf(Numeric)).call(this, props));
+
+        _this.state = _this.getComponentInitialState();
+        return _this;
+    }
+
+    _createClass(Numeric, [{
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                ReactBootstrap.FormGroup,
+                { controlId: this.props.code, bsSize: "small", className: this.getIsVisibleClassName(), validationState: this.state.validationState },
+                React.createElement(
+                    ReactBootstrap.Col,
+                    { sm: this.props.cols },
+                    React.createElement(
+                        ReactBootstrap.ControlLabel,
+                        null,
+                        this.props.label
+                    ),
+                    React.createElement(ReactBootstrap.FormControl, { type: "number", name: this.props.code, value: this.state.value, onChange: this.handleControlledComponentChange.bind(this), onBlur: this.handleBlur.bind(this) }),
+                    React.createElement(ValidationMessage, { messages: this.state.validationMessages })
+                )
+            );
+        }
+    }]);
+
+    return Numeric;
+}(FormGeneratorComponent);
+"use strict";
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Password = function (_FormGeneratorCompone) {
+    _inherits(Password, _FormGeneratorCompone);
+
+    function Password(props) {
+        _classCallCheck(this, Password);
+
+        var _this = _possibleConstructorReturn(this, (Password.__proto__ || Object.getPrototypeOf(Password)).call(this, props));
+
+        _this.state = getComponentInitialState();
+        return _this;
+    }
+
+    _createClass(Password, [{
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                ReactBootstrap.FormGroup,
+                { controlId: this.props.code, bsSize: "small", className: this.getIsVisibleClassName(), validationState: this.state.validationState },
+                React.createElement(
+                    ReactBootstrap.Col,
+                    { sm: this.props.cols },
+                    React.createElement(
+                        ReactBootstrap.ControlLabel,
+                        null,
+                        this.props.label
+                    ),
+                    React.createElement(ReactBootstrap.FormControl, { type: "password", name: this.props.code, value: this.state.value, onChange: this.handleControlledComponentChange.bind(this), onBlur: this.handleBlur.bind(this) }),
+                    React.createElement(ValidationMessage, { messages: this.state.validationMessages })
+                )
+            );
+        }
+    }]);
+
+    return Password;
+}(FormGeneratorComponent);
 "use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
