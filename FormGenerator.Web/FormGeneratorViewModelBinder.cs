@@ -1,15 +1,19 @@
 //using System.Collections.Generic;
+//using System.Linq;
 //using Microsoft.AspNetCore.Mvc;
 //using Microsoft.AspNetCore.Mvc.ModelBinding;
 //
 //public class FormGeneratorViewModel : DefaultModelBinder{
 //  public override object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext){
-//    var viewModel = new FormCodeAndAddionalParametersViewModel();
-//    viewModel.FormCode = controllerContext.RouteData.Values["formCode"].ToString();
-//    var queryStringCollection = controllerContext.HttpContext.Request.QueryString;
+//      var viewModel =
+//          new FormCodeAndAdditionalParametersViewModel
+//          {
+//              FormCode = controllerContext.RouteData.Values["formCode"].ToString()
+//          };
+//      var queryStringCollection = controllerContext.HttpContext.Request.Query;
 //    if (queryStringCollection.Count == 0) return viewModel;
 //
-//    var queryStringPair = queryStringCollection.AllKeys.SelectMany(queryStringCollection.GetValues, (k, v) => new {Key = k.ToLower(), Value = v});
+//    var queryStringPair = queryStringCollection.Select(x => new {Key = x.Key.ToLower(), x.Value});
 //    foreach(var pair in queryStringPair){
 //      if (pair == null || pair.Key == null) continue;
 //      viewModel.AdditionalParams.Add(pair.Key, pair.Value);

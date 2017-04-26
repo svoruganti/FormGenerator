@@ -66,5 +66,5 @@
         }
     };
     const formControls = ['@Html.Raw(String.Join("','", Model.FormFieldViewModels.Select(x => x.Code)))']
-    ReactDOM.render(<FormInstance loadUrl="@Model.LoadUrl" saveUrl="@Model.SaveUrl" components={formControls}/>, document.getElementById("content"));
+    ReactDOM.render(<ReactRedux.Provider store={store}><FormInstance loadUrl="@Model.LoadUrl" saveUrl="@Model.SaveUrl" components={formControls}/></ReactRedux.Provider>, document.getElementById("content"));
 </script>
