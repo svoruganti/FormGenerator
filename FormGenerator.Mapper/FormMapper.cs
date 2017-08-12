@@ -13,10 +13,8 @@ namespace FormGenerator.Mapper
             var viewModel = new FormViewModel
             {
                 Id = form.Id,
-                Code = form.Code,
-                Description = form.Description,
-                LoadUrl = $"/form/{form.Code}/load",
-                SaveUrl = $"/form/{form.Code}/save"
+                FormCode = form.Code,
+                Description = form.Description
             };
 
             foreach (var formConfiguration in form.FormConfigurations)

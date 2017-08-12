@@ -12,4 +12,7 @@
       <Name>FormGenerator.ViewModel</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
 </Project>

@@ -19,6 +19,8 @@ Project("{C429B273-B351-4BC4-A7CA-B946E5B89AD4}") = "FormGenerator.Handler", "Fo
 EndProject
 Project("{FC574F3C-8218-47D3-9210-5813FB680C5C}") = "FormGenerator.Service", "FormGenerator.Service\FormGenerator.Service.csproj", "{03A4BB36-F06A-4A5B-B81C-CDB47E29D735}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormGenerator.Test", "FormGenerator.Test\FormGenerator.Test.csproj", "{559FFE36-F562-48F1-A16F-DB534F5F0940}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{03A4BB36-F06A-4A5B-B81C-CDB47E29D735}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03A4BB36-F06A-4A5B-B81C-CDB47E29D735}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03A4BB36-F06A-4A5B-B81C-CDB47E29D735}.Release|Any CPU.Build.0 = Release|Any CPU
+		{559FFE36-F562-48F1-A16F-DB534F5F0940}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{559FFE36-F562-48F1-A16F-DB534F5F0940}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{559FFE36-F562-48F1-A16F-DB534F5F0940}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{559FFE36-F562-48F1-A16F-DB534F5F0940}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

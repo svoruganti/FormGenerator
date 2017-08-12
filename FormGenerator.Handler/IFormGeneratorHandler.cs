@@ -4,7 +4,7 @@ namespace FormGenerator.Handler
 {
     public interface IFormGeneratorHandler
     {
-        FormViewModel GetFormViewModel(string formCode);
-        LoadFormDataViewModel GetFormData(string formCode);
+        FormViewModel GetFormViewModel(FormCodeAndAdditionalParametersViewModel viewModel);
+        LoadFormDataViewModel GetFormData(FormCodeAndAdditionalParametersViewModel viewModel);
     }
 }

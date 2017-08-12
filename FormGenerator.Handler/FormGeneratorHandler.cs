@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using FormGenerator.Mapper;
+using FormGenerator.Service;
 using FormGenerator.Service.Interface;
 using FormGenerator.ViewModel;
 
@@ -17,14 +18,19 @@ namespace FormGenerator.Handler
             _formGeneratorService = formGeneratorService;
             _formMapper = formMapper;
         }
-        public FormViewModel GetFormViewModel(string formCode)
+        public FormViewModel GetFormViewModel(FormCodeAndAdditionalParametersViewModel viewModel)
         {
-            var form = _formGeneratorService.GetFormData(formCode);
-            var formReferenceData = _formGeneratorService.GetFormReferenceData(formCode);
-            return _formMapper.MapFormViewModel(form, formReferenceData);
+            var form = _formGeneratorService.GetFormData(viewModel.FormCode);
+            var formReferenceData = _formGeneratorService.GetFormReferenceData(viewModel.FormCode);
+
+            var formViewModel = _formMapper.MapFormViewModel(form, formReferenceData);
+            formViewModel.Description = "Additional params: " + viewModel.AdditionalParams.ToQueryString();
+            formViewModel.LoadUrl = GetActionUrl(viewModel, "load");
+            formViewModel.SaveUrl = GetActionUrl(viewModel, "savetest");
+            return formViewModel;
         }
 
-        public LoadFormDataViewModel GetFormData(string formCode)
+        public LoadFormDataViewModel GetFormData(FormCodeAndAdditionalParametersViewModel viewModel)
         {
             IDictionary<string, object> formData = new Dictionary<string, object>(StringComparer.CurrentCultureIgnoreCase);
             formData.Add("FBAE03_1", "First name");
@@ -35,6 +41,11 @@ namespace FormGenerator.Handler
             {
                 FormData = formData
             };
+        }
+
+        private static string GetActionUrl(FormCodeAndAdditionalParametersViewModel viewModel, string action)
+        {
+            return $"/form/{viewModel.FormCode}/{action}?{viewModel.AdditionalParams.ToQueryString()}";
         }
     }
 }

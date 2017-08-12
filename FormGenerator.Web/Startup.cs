@@ -3,6 +3,7 @@ using FormGenerator.DI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -33,7 +34,7 @@ namespace FormGenerator.Web
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddMvc();
+            services.AddMvc(config => config.ModelBinderProviders.Add(new FormCollectionModelBinderProvider()));
             WebDependencyInjection.Register(services);
             return new DependencyInjection().Register(services, Configuration);
         }
