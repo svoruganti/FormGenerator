@@ -2,8 +2,7 @@
 
 namespace FormGenerator.ViewModel
 {
-    public class SaveFormDataViewModel : FormCodeAndAdditionalParametersViewModel
+    public class SaveFormDataViewModel : FormDataViewModel
     {
-        public IDictionary<string, object> FormData { get; set; }
     }
 }

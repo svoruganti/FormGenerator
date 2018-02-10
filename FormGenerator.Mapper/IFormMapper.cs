@@ -8,4 +8,9 @@ namespace FormGenerator.Mapper
     {
         FormViewModel MapFormViewModel(Form form, IEnumerable<FormReferenceData> formReferenceData);
     }
+
+    public interface IFormGeneratorMapper<out TSaveViewModel>
+    {
+        TSaveViewModel MapToSaveViewModel(SaveFormDataViewModel viewModel);
+    }
 }

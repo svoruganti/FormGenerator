@@ -8,6 +8,7 @@ namespace FormGenerator.DI
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<FormMapper>().As<IFormMapper>();
+            builder.RegisterType<FormGeneratorViewModelMapper>().As<IFormGeneratorViewModelMapper>();
         }
     }
 }

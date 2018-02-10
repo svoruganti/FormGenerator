@@ -9,7 +9,7 @@ namespace FormGenerator.DI
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<FormGeneratorService>().As<IFormGeneratorService>();
+            builder.RegisterType<FormGeneratorService>().AsImplementedInterfaces();
             //AutofacHelper.RegisterFormGeneratorComponents<FormGeneratorServiceForAttribute, IFormGeneratorService>(builder);
         }
     }

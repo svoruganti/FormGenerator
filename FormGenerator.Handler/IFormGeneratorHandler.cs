@@ -6,5 +6,6 @@ namespace FormGenerator.Handler
     {
         FormViewModel GetFormViewModel(FormCodeAndAdditionalParametersViewModel viewModel);
         LoadFormDataViewModel GetFormData(FormCodeAndAdditionalParametersViewModel viewModel);
+        FormGeneratorActionResponse SaveFormData(SaveFormDataViewModel viewModel);
     }
 }
